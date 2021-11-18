@@ -131,8 +131,8 @@ def scrape():
         hemispheres['img_url'] = url + soup.find("img", class_ = "wide-image")["src"]
         hemispheres['titles'] = soup.find("h2", class_="title").text
         hemispheres_url.append(hemispheres)
-        img_url.append(hemispheres['img_url'])
-        titles.append(hemispheres['titles'])
+        # img_url.append(hemispheres['img_url'])
+        # titles.append(hemispheres['titles'])
         # print(hemispheres)
         browser.back()
 
@@ -140,7 +140,7 @@ def scrape():
         "news_p":news_p,
         "featured_image": featured_image_url,
         "tables_df": html_table,
-        "hemispheres_images": img_url, 
+        "hemispheres_images": hemispheres_url, 
         "titles":titles
 }
         #Close the browser after scraping F
