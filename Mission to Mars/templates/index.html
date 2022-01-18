@@ -51,10 +51,11 @@
    <div></div>   
    {% for hemisphere in hemispheres.hemispheres_images %}
    <div class="col-md-6">
-  <div class="thumbnail">
- <img src="{{hemisphere}}">
+  <!-- <div class="thumbnail"> -->
+ <!-- <img src="{{hemisphere}}"> -->
  <div class="caption"></div>
- <h4 class="media-heading">{{hemispheres.titles}}</h4>
+ <h4 class="media-heading">{{hemisphere.titles}}</h4>
+ <img src="{{hemisphere.img_url}}" class="img-fluid" style="max-width: 100%; height: 400px;">
       </div>
       </div>
     </div>

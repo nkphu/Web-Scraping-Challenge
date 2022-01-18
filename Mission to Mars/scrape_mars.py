@@ -1,8 +1,7 @@
 from splinter import Browser
 from bs4 import BeautifulSoup as bs
 import pandas as pd
-import pandas as pd
-import time
+import time 
 import pymongo
 from webdriver_manager.chrome import ChromeDriverManager
 
@@ -57,10 +56,7 @@ def scrape():
     html_table = tables_df.to_html()
     html_table
 
-    # html_table.replace('\n', '')
-
-    # tables_df.to_html('table.html')
-
+    
 
 # Mars Hemispheres
 
@@ -98,42 +94,27 @@ def scrape():
 
 
     links = list(dict.fromkeys(links))
-        # print(links)
+        
     links.remove("#")
-        # print(links)
-
-    links = []
-
-
-    for a in hemisphere_links:
-        a["href"]
-        links.append(a["href"])
-
-
-    links = list(dict.fromkeys(links))
-        # print(links)
-    links.remove("#")
-        # print(links)
-    
+ 
     hemispheres_url = []
     img_url= []
     titles = []
 
-    for hemisphere in range(4):
-        
+
+
+    for i in links:
+    
         browser.visit(f"https://marshemispheres.com/{i}")
-        # print(f"https://marshemispheres.com/{i}")
+    # print(f"https://marshemispheres.com/{i}")
         time.sleep(1)
         html = browser.html
-        # print (html)
+    # print (html)
         soup = bs(html, 'html.parser')
         hemispheres = {}
         hemispheres['img_url'] = url + soup.find("img", class_ = "wide-image")["src"]
         hemispheres['titles'] = soup.find("h2", class_="title").text
         hemispheres_url.append(hemispheres)
-        # img_url.append(hemispheres['img_url'])
-        # titles.append(hemispheres['titles'])
-        # print(hemispheres)
         browser.back()
 
     mars = {"news_title": news_title,
@@ -147,5 +128,6 @@ def scrape():
     browser.quit()
 
     #Return results
-    return img_url
+    return mars
 
+    print(scrape_all())
